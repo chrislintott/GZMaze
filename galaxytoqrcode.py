@@ -20,7 +20,7 @@ qr = qrcode.QRCode(
     border=4,
 )
 
-qr.add_data('PUT YOUR ID HERE')
+qr.add_data(id)
 qr.make(fit=True)
 
 img = qr.make_image()
