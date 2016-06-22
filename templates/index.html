@@ -4,7 +4,7 @@
 <head>
 <style>
 body { text-align: center; background: black; }
-#logo { margin-top: 5vh; margin-bottom: 5vh; }
+#logo { margin-top: 5vh; margin-bottom: 2vh; }
 #galaxy { margin-top: 5vh; margin-bottom: 5vh; }
 #qrcode { margin-top: 5vh; margin-bottom: 5vh; }
 
@@ -13,7 +13,7 @@ body { text-align: center; background: black; }
 
 <body>
 
-<div><img id="logo"    src="https://www.galaxyzoo.org/images/gz_logo.png" alt="Galaxy Zoo logo" style="height:10vh;"></div>
-<div><img id="galaxy"  src="{{ imageURL }}" alt="Galaxy image" style="height:30vh;"></div>
-<div><img id="qrcode"  src="{{ url_for('get_qrcode', galid=galid) }}" alt="QR code" style="height:30vh;"></div>
+<div><img id="logo"    src="https://www.galaxyzoo.org/images/gz_logo.png" alt="Galaxy Zoo logo" style="height:5vh;"></div>
+<div><img id="galaxy"  src="{{ imageURL }}" alt="Galaxy image" style="height:32vh;"></div>
+<div><img id="qrcode"  src="{{ url_for('get_qrcode', galid=galid) }}" alt="QR code" style="height:32vh;"></div>
 </body>
