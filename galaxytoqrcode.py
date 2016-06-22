@@ -8,7 +8,10 @@ url = 'https://panoptes.zooniverse.org/api/subjects?workflow_id=2076&sort=queued
 headers = {'Content-Type':'application/json', 'Accept':'application/vnd.api+json; version=1'}
 
 r=requests.get(url,headers=headers)
-r.json()
+sub=r.json()
+
+id=sub['subjects'][0][id]
+ImageURL=sub['subjects'][0]['locations'][0]['image/jpeg']
 
 qr = qrcode.QRCode(
     version=1,
