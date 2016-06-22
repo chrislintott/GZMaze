@@ -33,6 +33,8 @@ def check_status(bar=1,bulge=0):
 
         time.sleep(0.5)
 
+        headers={'Content-Type':'application/json','Accept':'application/vnd.api+json; version=1'}
+
 
 def read_object_classification(clipboard_old):
     filename="classification_data.csv"
@@ -58,3 +60,4 @@ def write_example_file():
         writer.writerow(['Id','bulge','bar'])
         for i in range(len(IDS)):
             writer.writerow([IDS[i],bulge[i],bar[i]])
+
