@@ -1,9 +1,11 @@
 <!DOCTYPE>
 <html>
-    <head></head>
+    <head>
+    	<title>Galaxy Zoo</title>
+    </head>
     <body> 
     <h1> Galaxy Zoo Maze </h1> 
-    <div>Image div here</div>
-    <div>QR code div here</div>
+    <div><img src= "{{ imageURL }}"></div>
+    <div><img src= "{{ url_for('get_qrcode', galid=galid) }}"></div>
     </body>
 </html>
