@@ -10,7 +10,7 @@ headers = {'Content-Type':'application/json', 'Accept':'application/vnd.api+json
 r=requests.get(url,headers=headers)
 sub=r.json()
 
-id=sub['subjects'][0][id]
+id=sub['subjects'][0]['id']
 ImageURL=sub['subjects'][0]['locations'][0]['image/jpeg']
 
 qr = qrcode.QRCode(
