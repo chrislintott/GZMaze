@@ -1,1 +1,2 @@
-web gunicorn app:gzmaze
+web gunicorn gzmaze:app
+
