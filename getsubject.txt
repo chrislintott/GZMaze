@@ -1,0 +1,3 @@
+curl -X "GET" "https://panoptes.zooniverse.org/api/subjects?workflow_id=512&sort=queued" \
+	-H "Content-Type: application/json" \
+	-H "Accept: application/vnd.api+json; version=1"
