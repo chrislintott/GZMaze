@@ -3,10 +3,12 @@
 
 <head>
 <style>
-body { text-align: center; background: black; }
-#logo { margin-top: 5vh; margin-bottom: 2vh; }
+body 	{ text-align: center; background: black; }
+#logo 	{ margin-top: 5vh; margin-bottom: 2vh; }
 #galaxy { margin-top: 5vh; margin-bottom: 5vh; }
 #qrcode { margin-top: 5vh; margin-bottom: 5vh; }
+#credits{ position:absolute; left:0 ; right:0; bottom:0; height:3em; text-align:center; font-size:80%; color:#4d4d4d; }
+#credits a{color: #4d4d4d;}
 
 </style>
 </head>
@@ -16,4 +18,5 @@ body { text-align: center; background: black; }
 <div><img id="logo"    src="https://www.galaxyzoo.org/images/gz_logo.png" alt="Galaxy Zoo logo" style="height:5vh;"></div>
 <div><img id="galaxy"  src="{{ imageURL }}" alt="Galaxy image" style="height:32vh;"></div>
 <div><img id="qrcode"  src="{{ url_for('get_qrcode', galid=galid) }}" alt="QR code" style="height:32vh;"></div>
+<div id="credits"> Made by Ricarda, Marten, James, Ellen, Chris, and Becky. Code found <a href="https://github.com/chrislintott/GZMaze">here</a>.</div>
 </body>

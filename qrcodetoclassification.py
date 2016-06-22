@@ -1,6 +1,13 @@
 import time
 import pyperclip
 import csv
+import subprocess
+import serial
+
+ser = serial.Serial('/dev/cu.usbmodemFD131', baudrate=9600, timeout=None)
+clipboard_old = pyperclip.paste()
+musicFile = "music/yes_1.mp3"
+failText = "Fail. No, bubbles, for you."
 
 #local information
 
@@ -25,9 +32,14 @@ def check_status(bar=1,bulge=0):
 
             if status:
                 print "Success :) Do the things!"
+                return_code = subprocess.call(["afplay", musicFile])
+                ser.write('1\n')
+                time.sleep(16)
+                ser.write('0\n')
 
             else:
                 print "Fail :( No bubbles for you"
+                return_code = subprocess.call(["say", failText])
 
             print '-------------'
 
