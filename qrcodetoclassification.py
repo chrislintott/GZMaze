@@ -12,3 +12,5 @@ while True:
         clipboard_old = clipboard
 
     time.sleep(0.5)
+    
+headers={'Content-Type':'application/json','Accept':'application/vnd.api+json; version=1'}
