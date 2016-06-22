@@ -5,10 +5,12 @@
 
 from __future__ import print_function, division, unicode_literals
 import numpy as np
+import StringIO
 
-from flask import Flask, jsonify, render_template, request, send_file
+from flask import Flask, jsonify, render_template, request, send_file, make_response
 from werkzeug.contrib.cache import SimpleCache
-from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvasm
+from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+import matplotlib.pyplot as plt
 import json
 import qrcode
 import requests
@@ -53,7 +55,17 @@ def get_qrcode(galid):
 	qr.make(fit=True)
 
 	img = qr.make_image()
-	return send_file(img, mimetype='image/png')
+	fig = plt.figure(frameon=False)
+	axis = fig.add_subplot(111)
+	axis.imshow(img)
+	axis.axis('off')
+	#plt.subplots_adjust(top = 0, bottom = 0, right = 0, left = 0, hspace = 0, wspace = 0)
+	canvas = FigureCanvas(fig)
+	output = StringIO.StringIO()
+	canvas.print_png(output)
+	response = make_response(output.getvalue())
+	response.mimetype = 'image/png'
+	return response
 
 
 	
