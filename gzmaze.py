@@ -21,7 +21,7 @@ def homepage():
 	return render_template('index.html')
 
 @app.route('/', methods=["GET", "POST"])
-def get_qrcode():
+def get_gz_qrcode():
 	### insert function here
 
 	
