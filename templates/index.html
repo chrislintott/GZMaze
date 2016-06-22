@@ -1,11 +1,20 @@
 <!DOCTYPE>
 <html>
-    <head>
-    	<title>Galaxy Zoo</title>
-    </head>
-    <body> 
-    <h1> Galaxy Zoo Maze </h1> 
-    <div><img src= "{{ imageURL }}"></div>
-    <div><img src= "{{ url_for('get_qrcode', galid=galid) }}"></div>
-    </body>
-</html>
+<<<<<<< HEAD
+
+<head>
+<style>
+body { text-align: center; background: black; }
+#logo { margin-top: 5vh; margin-bottom: 5vh; }
+#galaxy { margin-top: 5vh; margin-bottom: 5vh; }
+#qrcode { margin-top: 5vh; margin-bottom: 5vh; }
+
+</style>
+</head>
+
+<body>
+
+<div><img id="logo"    src="../images/gz_logo.png" alt="Galaxy Zoo logo" style="height:10vh;"></div>
+<div><img id="galaxy"  src="{{ imageURL }}" alt="Galaxy image" style="height:30vh;"></div>
+<div><img id="qrcode"  src="{{ url_for('get_qrcode', galid=galid) }}" alt="QR code" style="height:30vh;"></div>
+</body>
