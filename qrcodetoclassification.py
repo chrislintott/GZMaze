@@ -7,14 +7,17 @@ import serial
 ser = serial.Serial('/dev/cu.usbmodemFD131', baudrate=9600, timeout=None)
 clipboard_old = pyperclip.paste()
 musicFile = "music/yes_1.mp3"
+musicFile_rick = "music/rickroll.mp3"
 failText = "Fail. No, bubbles, for you."
+rickText = "Fail. But don't worry. I'm never, gonna give you up."
 
 #local information
 
 
 def check_status(bar=1,bulge=0):
-        
-    clipboard_old=""
+    
+    numFails = 0
+    clipboard_old = pyperclip.paste()
     while True:
         clipboard = pyperclip.paste()
         
@@ -32,14 +35,27 @@ def check_status(bar=1,bulge=0):
 
             if status:
                 print "Success :) Do the things!"
-                return_code = subprocess.call(["afplay", musicFile])
                 ser.write('1\n')
-                time.sleep(16)
+                return_code = subprocess.call(["afplay", musicFile])
                 ser.write('0\n')
+                time.sleep(0.5)
+                ser.write('M\n')
+                time.sleep(8)
+                ser.write('N\n')
 
             else:
-                print "Fail :( No bubbles for you"
-                return_code = subprocess.call(["say", failText])
+                numFails += 1
+                if (numFails%5 != 0):
+                    print "Fail :( No bubbles for you"
+                    return_code = subprocess.call(["say", failText])
+                else:
+                    print "Fail :( No bubbles for you, but here's a Rickroll anyway..."
+                    return_code = subprocess.call(["say", rickText])
+                    #ser.write('1\n')
+                    return_code = subprocess.call(["afplay", musicFile_rick])
+                    #ser.write('0\n')
+
+
 
             print '-------------'
 
